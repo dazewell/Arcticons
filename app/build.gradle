@@ -6,7 +6,7 @@ android {
     compileSdk rootProject.ext.CompileSdk
 
     defaultConfig {
-        applicationId "com.donnnno.arcticons"
+        applicationId "com.donnnno.arcticons.dazewell"
         minSdkVersion rootProject.ext.MinSdk
         targetSdkVersion rootProject.ext.TargetSdk
         versionCode 131
@@ -46,40 +46,40 @@ android {
     productFlavors {
         normal {
             dimension "variant"
-            resValue "string", "app_name", "Arcticons"
+            resValue "string", "app_name", "Arcticons (dazewell)"
         }
         normalPlay {
             dimension "variant"
-            resValue "string", "app_name", "Arcticons"
+            resValue "string", "app_name", "Arcticons (dazewell)"
         }
         black {
             dimension "variant"
             //noinspection GradlePath
             applicationIdSuffix '.light'
-            resValue "string", "app_name", "Arcticons Black"
+            resValue "string", "app_name", "Arcticons (dazewell) Black"
         }
         blackPlay {
             dimension "variant"
             applicationIdSuffix '.light'
-            resValue "string", "app_name", "Arcticons Black"
+            resValue "string", "app_name", "Arcticons (dazewell) Black"
         }
         you {
             dimension "variant"
             minSdkVersion "26"
             applicationIdSuffix '.you'
-            resValue "string", "app_name", "Arcticons Material You"
+            resValue "string", "app_name", "Arcticons (dazewell) Material You"
         }
         youPlay {
             dimension "variant"
             minSdkVersion "26"
             applicationIdSuffix '.you.play'
-            resValue "string", "app_name", "Arcticons Material You"
+            resValue "string", "app_name", "Arcticons (dazewell) Material You"
         }
         dayNight {
             dimension "variant"
             minSdkVersion "29"
             applicationIdSuffix '.daynight'
-            resValue "string", "app_name", "Arcticons Day & Night"
+            resValue "string", "app_name", "Arcticons (dazewell) Day & Night"
         }
     }
 
