@@ -85,8 +85,10 @@ public class SvgConverter {
             Path targetFile = Path.of(XMLhelper.getFileWithExtension(vectorTargetPath));
             try (ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream()) {
                 Svg2Vector.parseSvgToXml(svgSource, byteArrayOutputStream);
-                if (Objects.equals(flavor, "you")){
-                createAdaptive(byteArrayOutputStream, String.valueOf(targetFile));
+                if (Objects.equals(flavor, "you")) {
+                    createAdaptive(byteArrayOutputStream, String.valueOf(targetFile), AdaptiveVariants.DEF);
+                } else if (Objects.equals(flavor, "youDark")) {
+                    createAdaptive(byteArrayOutputStream, String.valueOf(targetFile), AdaptiveVariants.DARK);
                 } else if (Objects.equals(flavor, "black")){
                     createDrawable(byteArrayOutputStream, String.valueOf(targetFile),"#000000");
                 }else if (Objects.equals(flavor, "normal")){
@@ -112,9 +114,9 @@ public class SvgConverter {
         XMLhelper.writeDocumentToFile(document, resPath);
     }
 
-    private static void createAdaptive(ByteArrayOutputStream byteArrayOutputStream, String resPath) throws Exception {
-        String fg = "@color/icon_color";
-        String bg = "@color/icon_background_color";
+    private static void createAdaptive(ByteArrayOutputStream byteArrayOutputStream, String resPath, AdaptiveVariants flavor) throws Exception {
+        String fg = getAdaptiveForeground(flavor);
+        String bg = getAdaptiveBackground(flavor);
         String px = "1.2";
         String foregroundXmlContent = new String(byteArrayOutputStream.toByteArray(), StandardCharsets.UTF_8);
         Document foregroundDocument = DocumentHelper.parseText(foregroundXmlContent);
@@ -135,6 +137,21 @@ public class SvgConverter {
         XMLhelper.writeDocumentToFile(document, resPath);
     }
 
+    private static String getAdaptiveForeground(AdaptiveVariants variant) {
+        return switch (variant) {
+            case DARK -> "@android:color/system_accent1_100";
+            case LIGHT -> "@android:color/system_neutral2_700";
+            default -> "@color/icon_color";
+        };
+    }
+
+    private static String getAdaptiveBackground(AdaptiveVariants variant) {
+        return switch (variant) {
+            case DARK -> "@android:color/system_neutral1_800";
+            case LIGHT -> "@android:color/system_accent1_100";
+            default -> "@color/icon_background_color";
+        };
+    }
 
     private static void updateRootElement(Document aDocument, String key, String value) throws Exception {
 
@@ -172,4 +189,9 @@ public class SvgConverter {
         }
     }
 
+    enum AdaptiveVariants {
+        DEF,
+        DARK,
+        LIGHT
+    }
 }

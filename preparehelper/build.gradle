@@ -13,6 +13,13 @@ tasks.register('runyou', JavaExec) {
     // Other configurations...
     args = ['you']
 }
+tasks.register('runyoudark', JavaExec) {
+    // Configure the task as needed
+    mainClass = 'com.donnnno.arcticons.helper.Start'
+    classpath = sourceSets.main.runtimeClasspath
+    // Other configurations...
+    args = ['youDark']
+}
 tasks.register('runblack', JavaExec) {
     // Configure the task as needed
     mainClass = 'com.donnnno.arcticons.helper.Start'

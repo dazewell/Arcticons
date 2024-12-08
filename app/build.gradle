@@ -53,6 +53,8 @@ android {
 
             if (variant.flavorName == "you" || variant.flavorName == "youPlay") {
                 variant.preBuildProvider.get().dependsOn(":preparehelper:runyou")
+            } else if (variant.flavorName == "youDark" || variant.flavorName == "youDarkPlay") {
+                variant.preBuildProvider.get().dependsOn(":preparehelper:runyoudark")
             } else if (variant.flavorName == "black" || variant.flavorName == "blackPlay") {
                 variant.preBuildProvider.get().dependsOn(":preparehelper:runblack")
             }else if (variant.flavorName == "normal" || variant.flavorName == "normalPlay") {
@@ -93,10 +95,22 @@ android {
             applicationIdSuffix '.you'
             resValue "string", "app_name", "Arcticons (dazewell) Material You"
         }
+        youDark {
+            dimension "variant"
+            minSdkVersion "26"
+            applicationIdSuffix '.youdark'
+            resValue "string", "app_name", "Arcticons (dazewell) Material You"
+        }
         youPlay {
             dimension "variant"
             minSdkVersion "26"
             applicationIdSuffix '.you.play'
+            resValue "string", "app_name", "Arcticons (dazewell) Material You"
+        }
+        youDarkPlay {
+            dimension "variant"
+            minSdkVersion "26"
+            applicationIdSuffix '.youdark.play'
             resValue "string", "app_name", "Arcticons (dazewell) Material You"
         }
         dayNight {
@@ -113,7 +127,9 @@ android {
         black { res.srcDirs = ['src/blackFree/res/', 'src/black/res'] }
         blackPlay { res.srcDirs = ['src/blackPlay/res/', 'src/black/res'] }
 		you { res.srcDirs = ['src/youFree/res/', 'src/you/res'] }
+        youDark { res.srcDirs = ['src/youFree/res/', 'src/you/res'] }
         youPlay { res.srcDirs = ['src/youPlay/res/', 'src/you/res'] }
+        youDarkPlay { res.srcDirs = ['src/youPlay/res/', 'src/you/res'] }
         dayNight { res.srcDirs = ['src/dayNightFree/res/', 'src/dayNight/res'] }
     }
 

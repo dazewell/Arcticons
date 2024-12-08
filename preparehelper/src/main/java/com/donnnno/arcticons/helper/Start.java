@@ -31,7 +31,7 @@ public class Start {
             System.out.println("Processing with flavor: " + flavor);
             //String appFilterFile = rootDir + "/app/assets/appfilter.xml";
             switch (flavor) {
-                case "you" -> {
+                case "you", "youDark" -> {
                     resDir = rootDir + "/app/src/you/res";
                     destDir = resDir + "/drawable-anydpi";
                     // Convert svg to drawable in runtime
