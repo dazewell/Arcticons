@@ -9,22 +9,46 @@ android {
         applicationId "com.donnnno.arcticons.dazewell"
         minSdkVersion rootProject.ext.MinSdk
         targetSdkVersion rootProject.ext.TargetSdk
-        versionCode 131
-        versionName '9.0.0'
-        multiDexEnabled true
-
-        // Naming app bundles
-        setArchivesBaseName("${parent.name}-v${versionName}")
+        versionCode 1390
+        versionName '11.4.6'
+        multiDexEnabled true        // Naming app bundles
+        base {
+            archivesName = "${parent.name}-v${versionName}"
+        }
 
     }
 
+    // Load keystore
+    def keystorePropertiesFile = rootProject.file("keystore.properties");
+    def releaseSigning;
+    if (keystorePropertiesFile.exists()){
+        def keystoreProperties = new Properties()
+        keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+        releaseSigning = signingConfigs.create("release", signingConfig -> {
+            signingConfig.setKeyAlias(keystoreProperties.getProperty("keyAlias"));
+            signingConfig.setKeyPassword(keystoreProperties.getProperty("keyPassword"));
+            signingConfig.setStoreFile(rootProject.file(keystoreProperties.getProperty("storeFile")));
+            signingConfig.setStorePassword(keystoreProperties.getProperty("storePassword"));
+        });
+    } else {releaseSigning = signingConfigs.getByName("debug"); // Use getByName for safety
+}
+
+    buildFeatures {
+        buildConfig = true
+    }
+
     buildTypes {
+        configureEach {
+            signingConfig = releaseSigning
+        }
         release {
             minifyEnabled false
-            debug {
-                applicationIdSuffix '.debug'
-            }
         }
+        debug {
+            applicationIdSuffix '.debug'
+        }
+
+
         applicationVariants.all { variant ->
 
             if (variant.flavorName == "you" || variant.flavorName == "youPlay") {
@@ -101,19 +125,28 @@ android {
     }
 
     buildFeatures {
+        buildConfig = true
         viewBinding true
     }
     namespace 'com.donnnno.arcticons'
     lint {
         abortOnError false
         checkReleaseBuilds false
+        lintConfig = file("lint.xml")
+    }
+
+    dependenciesInfo {
+        // Disables dependency metadata when building APKs.
+        includeInApk = false
+        // Disables dependency metadata when building Android App Bundles.
+        includeInBundle = false
     }
 }
 
 dependencies {
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
-    implementation 'com.github.donnnno:candybar-foss:3.19.0-hotfix'
+    implementation 'com.github.donnnno:candybar-foss:3.20.3'
 }
 
 import com.android.tools.profgen.ArtProfileKt
