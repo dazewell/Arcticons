@@ -9,7 +9,7 @@
 </div>
   
 # Arcticons for Android
-❄️ With over **10000 icons**, Arcticons is one of the largest free & open source icon-packs available. Featuring consistent and elegant handcrafted icons, giving you a minimalistic clutter-free experience on your phone. <br>
+❄️ With over **12000 icons**, Arcticons is one of the largest free & open source icon-packs available. Featuring consistent and elegant handcrafted icons, giving you a minimalistic clutter-free experience on your phone. <br>
 
 🗺️ Powered by a community of icon creators all around the world!
   
@@ -27,7 +27,7 @@
 
 <div align="center">
   <br>
-  <a href="https://www.paypal.com/paypalme/onnovdd"><img height="80" alt="Donate using Paypal" src="github/paypal.webp"></a>   <a href="https://liberapay.com/Donno/donate"><img height="80" alt="Donate using Liberapay" src="github/liberapay.webp"></a>   <a href="https://Ko-fi.com/donno_"><img height="80" alt="Donate using Ko-Fi" src="github/kofi.webp"></a>
+  <a href="https://liberapay.com/Arcticons/"><img height="80" alt="Donate using Liberapay" src="github/liberapay.webp"></a>   <a href="https://Ko-fi.com/donno_"><img height="80" alt="Donate using Ko-Fi" src="github/kofi.webp"></a>
 </div>
 
 ## Matrix room
@@ -47,3 +47,5 @@
 ## License
   Arcticons uses the [GPL-3.0 license](https://www.gnu.org/licenses/gpl-3.0.en.html).<br>
   All icons are licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).<br>
+
+
