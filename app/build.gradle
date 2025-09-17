@@ -121,9 +121,9 @@ android {
         black { res.srcDirs = ['src/blackFree/res/', 'src/black/res'] }
         blackPlay { res.srcDirs = ['src/blackPlay/res/', 'src/black/res'] }
 		you { res.srcDirs = ['src/youFree/res/', 'src/you/res'] }
-        youDark { res.srcDirs = ['src/youFree/res/', 'src/you/res'] }
+        youDark { res.srcDirs = ['src/youDarkFree/res/', 'src/you/res'] }
         youPlay { res.srcDirs = ['src/youPlay/res/', 'src/you/res'] }
-        youDarkPlay { res.srcDirs = ['src/youPlay/res/', 'src/you/res'] }
+        youDarkPlay { res.srcDirs = ['src/youDarkPlay/res/', 'src/you/res'] }
         dayNight { res.srcDirs = ['src/dayNightFree/res/', 'src/dayNight/res'] }
     }
 
@@ -161,9 +161,11 @@ dependencies {
     normalPlayImplementation 'com.github.zixpo:candybar:main-SNAPSHOT'
     blackPlayImplementation 'com.github.zixpo:candybar:main-SNAPSHOT'
     youPlayImplementation 'com.github.zixpo:candybar:main-SNAPSHOT'
+    youDarkPlayImplementation 'com.github.zixpo:candybar:main-SNAPSHOT'
     normalImplementation 'com.github.Donnnno:candybar-foss:3.21.3'
     blackImplementation 'com.github.Donnnno:candybar-foss:3.21.3'
     youImplementation 'com.github.Donnnno:candybar-foss:3.21.3'
+    youDarkImplementation 'com.github.Donnnno:candybar-foss:3.21.3'
     dayNightImplementation 'com.github.Donnnno:candybar-foss:3.21.3'
 }
 

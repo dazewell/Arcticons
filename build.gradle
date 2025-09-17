@@ -30,6 +30,8 @@ tasks.register('clean', Delete) {
     delete fileTree(dir: 'app/src/light/res/drawable-anydpi')
     delete fileTree(dir: 'app/src/dark/res/drawable-anydpi')
     delete fileTree(dir: 'app/src/dayNight/res/drawable-anydpi')
+    delete fileTree(dir: 'app/src/youDarkFree/res/drawable-anydpi')
+    delete fileTree(dir: 'app/src/youDarkPlay/res/drawable-anydpi')
 }
 
 //F-DROID REPRODUCIBLE BUILDS
